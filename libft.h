@@ -13,6 +13,7 @@ int ft_toupper(int c);
 int ft_tolower(int c);
 size_t  ft_strlen(const char *s);
 void *ft_menset(void *b, int c, size_t len);
+void ft_bzero(void *s, size_t n);
 
 #endif
 
