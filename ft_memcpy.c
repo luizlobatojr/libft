@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 18:35:24 by lubatist          #+#    #+#             */
-/*   Updated: 2026/09/29 18:35:27 by lubatist         ###   ########.fr       */
+/*   Created: 2026/09/29 18:52:26 by lubatist          #+#    #+#             */
+/*   Updated: 2026/09/29 18:52:31 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void    *ft_memcpcy(void *dst, const void *src, size_t n)
 {
-	ft_memset(s, 0, n);
+    unsigned char   *d;
+    const unsigned  *s;
+    size_t  i;
+
+    d = (unsigned char *)dst;
+    s = (const unsigned char *)src;
+    i = 0;
+    while(i < n)
+    {
+        d[i] = s[i];
+        i++;
+        return (dst);
+    }
 }
