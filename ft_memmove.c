@@ -40,3 +40,25 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
+
+#include <stdio.h>
+
+// Declaração da função
+void    *ft_memmove(void *dst, const void *src, size_t len);
+
+int main(void)
+{
+    char buffer[] = "abcdefghi";
+
+    printf("Original:     %s\n", buffer);
+
+    // Tentamos mover "abcde" para o espaço que começa no 'c' (sobreposição!)
+    // Origem: &buffer[0] ('a')
+    // Destino: &buffer[2] ('c')
+    // Tamanho: 5 bytes
+    ft_memmove(buffer + 2, buffer, 5);
+
+    printf("Com memmove:  %s\n", buffer);
+
+    return (0);
+}
