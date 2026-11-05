@@ -34,7 +34,7 @@ static size_t	count_words(char const *s, char c)
 	return (count);
 }
 
-static void	*free_tab(char **tab, size_t j)
+static char	**free_tab(char **tab, size_t j)
 {
 	size_t	i;
 
@@ -48,28 +48,30 @@ static void	*free_tab(char **tab, size_t j)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+static size_t	word_length(char const *s, char c)
 {
-	char	**result;
-	size_t	words;
+	size_t	len;
+
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	return (len);
+}
+
+static char	**fill_words(char **result, char const *s, char c)
+{
 	size_t	i;
 	size_t	len;
 
-	if (!s)
-		return (NULL);
-	words = count_words(s, c);
-	result = (char **)malloc(sizeof(char *) * (words + 1));
-	if (!result)
-		return (NULL);
 	i = 0;
-	while (i < words)
+	while (*s)
 	{
-		while (*s && *s == c)
+		while (*s == c)
 			s++;
-		len = 0;
-		while (s[len] && s[len] != c)
-			len++;
-		result[i] = ft_substr(s, 0, len); // Reutilizando o ft_substr!
+		if (!*s)
+			break ;
+		len = word_length(s, c);
+		result[i] = ft_substr(s, 0, len);
 		if (!result[i])
 			return (free_tab(result, i));
 		s += len;
@@ -77,4 +79,18 @@ char	**ft_split(char const *s, char c)
 	}
 	result[i] = NULL;
 	return (result);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**result;
+	size_t	words;
+
+	if (!s)
+		return (NULL);
+	words = count_words(s, c);
+	result = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!result)
+		return (NULL);
+	return (fill_words(result, s, c));
 }

@@ -23,8 +23,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	
-	// Reutilizamos o ft_lstlast para encontrar o último nó!
 	last = ft_lstlast(*lst);
 	last->next = new;
 }

@@ -1,36 +1,62 @@
-*This project has been created as part of the 42 curriculum by <lubatist>.*
+*This project has been created as part of the 42 curriculum by lubatist.*
 
 ## Description
 
-**Libft** is the first project at 42. The goal is to design a C library from scratch by re-implementing a set of standard C library functions, as well as additional utility functions that will be useful throughout the rest of the curriculum.
+Libft is a C library that reimplements a selection of standard C library
+functions and adds utility functions for string processing, output, and linked
+lists. Its goal is to provide a reusable library while practicing C, pointer
+manipulation, and memory management.
 
-This library emphasizes rigorous memory management, low-level pointer manipulation, strict adherence to the ISO C standard, and a modular architecture where complex functions build upon simpler ones. It serves as a foundational toolkit for future systems and graphics programming projects.
+## Library details
 
----
+### Part 1 - Libc functions
 
-## Library Detailed Description
+Character checks and conversions: `ft_isalpha`, `ft_isdigit`, `ft_isalnum`,
+`ft_isascii`, `ft_isprint`, `ft_toupper`, and `ft_tolower`.
 
-The library is split into multiple modules categorized by their functionality:
+Memory functions: `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`,
+`ft_memchr`, `ft_memcmp`, `ft_calloc`, and `ft_strdup`.
 
-### 1. Part 1 - Libc Functions
-Re-implementations of standard C library functions, behaving as closely to their original man-page counterparts as possible (but prefixed with `ft_`):
-* **Character Checks & Conversions:** `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`, `ft_toupper`, `ft_tolower`.
-* **Memory Operations:** `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`, `ft_calloc` (customized to handle `0`-size allocations safely), `ft_strdup`.
-* **String Manipulations & Searches:** `ft_strlen`, `ft_strlcpy`, `ft_strlcat`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strnstr`, `ft_atoi`.
+String functions: `ft_strlen`, `ft_strlcpy`, `ft_strlcat`, `ft_strchr`,
+`ft_strrchr`, `ft_strncmp`, `ft_strnstr`, and `ft_atoi`.
 
-### 2. Part 2 - Additional Functions
-Custom utility functions not natively included in the standard libc or implemented in a distinct form:
-* **String Processing:** `ft_substr`, `ft_strjoin`, `ft_strtrim`, `ft_split`, `ft_itoa`.
-* **Iterators:** `ft_strmapi`, `ft_striteri`.
-* **File Descriptor Outputs:** `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`.
+### Part 2 - Additional functions
 
----
+String utilities: `ft_substr`, `ft_strjoin`, `ft_strtrim`, `ft_split`, and
+`ft_itoa`. Iteration functions: `ft_strmapi` and `ft_striteri`. File
+descriptor output: `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, and
+`ft_putnbr_fd`.
+
+### Bonus - Linked lists
+
+The bonus provides singly linked-list creation, traversal, mapping, and
+cleanup with the `t_list` type: `ft_lstnew`, `ft_lstadd_front`,
+`ft_lstadd_back`, `ft_lstsize`, `ft_lstlast`, `ft_lstdelone`, `ft_lstclear`,
+`ft_lstiter`, and `ft_lstmap`.
 
 ## Instructions
 
-### Compilation
-The library is compiled using a robust `Makefile` with `-Wall -Werror -Wextra` flags. 
+Build the mandatory library with:
 
-To compile the primary library:
-```bash
+```sh
 make
+```
+
+Build the library including linked-list bonus functions with:
+
+```sh
+make bonus
+```
+
+Include `libft.h` in your C program and link the generated `libft.a`.
+`make clean` removes object files, `make fclean` removes object files and the
+library, and `make re` rebuilds the mandatory library.
+
+## Resources
+
+The function specifications in the project subject and the relevant C library
+manual pages were used as references. The Linux man-pages project is available
+at <https://man7.org/linux/man-pages/>.
+
+AI assistance was used to compare the code and build configuration with the
+project subject, identify mismatches, and validate the corrections.

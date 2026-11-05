@@ -20,7 +20,7 @@ static int	get_len(long n)
 	len = 0;
 	if (n <= 0)
 	{
-		len = 1; // Conta o sinal negativo ou o dígito '0'
+		len = 1;
 		n = -n;
 	}
 	while (n > 0)

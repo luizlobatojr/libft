@@ -10,55 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdint.h>
 #include "libft.h"
+
+static void	copy_forward(unsigned char *dst, const unsigned char *src,
+		size_t len)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < len)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+}
+
+static void	copy_backward(unsigned char *dst, const unsigned char *src,
+		size_t len)
+{
+	while (len > 0)
+	{
+		len--;
+		dst[len] = src[len];
+	}
+}
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
-	size_t				i;
-
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
-	if (d < s)
-	{
-		i = 0;
-		while (i < len)
-		{
-			d[i] = s[i];
-			i++;
-		}
-	}
+	if (len == 0 || dst == src)
+		return (dst);
+	if ((uintptr_t)dst < (uintptr_t)src)
+		copy_forward((unsigned char *)dst, (const unsigned char *)src, len);
 	else
-	{
-		i = len;
-		while (i > 0)
-		{
-			i--;
-			d[i] = s[i];
-		}
-	}
+		copy_backward((unsigned char *)dst, (const unsigned char *)src, len);
 	return (dst);
-}
-
-#include <stdio.h>
-
-// Declaração da função
-void    *ft_memmove(void *dst, const void *src, size_t len);
-
-int main(void)
-{
-    char buffer[] = "abcdefghi";
-
-    printf("Original:     %s\n", buffer);
-
-    // Tentamos mover "abcde" para o espaço que começa no 'c' (sobreposição!)
-    // Origem: &buffer[0] ('a')
-    // Destino: &buffer[2] ('c')
-    // Tamanho: 5 bytes
-    ft_memmove(buffer + 2, buffer, 5);
-
-    printf("Com memmove:  %s\n", buffer);
-
-    return (0);
 }

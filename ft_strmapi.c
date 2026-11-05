@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -20,12 +20,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s || !f)
 		return (NULL);
-	
-	// Aloca memória para a nova string usando ft_strlen
 	res = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!res)
 		return (NULL);
-	
 	i = 0;
 	while (s[i] != '\0')
 	{
@@ -33,6 +30,5 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		i++;
 	}
 	res[i] = '\0';
-	
 	return (res);
 }

@@ -19,17 +19,12 @@ char	*ft_strdup(const char *s1)
 	size_t	i;
 	char	*dup;
 
-	// 1. Calcula o tamanho da string original
 	len = 0;
 	while (s1[len] != '\0')
 		len++;
-
-	// 2. Aloca memória para a nova string (+1 para o '\0')
 	dup = (char *)malloc(sizeof(char) * (len + 1));
 	if (!dup)
 		return (NULL);
-
-	// 3. Copia os caracteres para o novo espaço alocado
 	i = 0;
 	while (i < len)
 	{
@@ -37,7 +32,5 @@ char	*ft_strdup(const char *s1)
 		i++;
 	}
 	dup[i] = '\0';
-
-	// 4. Retorna o ponteiro para a string duplicada
 	return (dup);
 }
