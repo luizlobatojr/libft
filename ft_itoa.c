@@ -5,55 +5,66 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/07 15:39:03 by lubatist          #+#    #+#             */
-/*   Updated: 2026/10/07 15:39:06 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/12 14:20:58 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/12 14:20:59 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static int	get_len(long n)
+static int	count_digits(long n)
 {
-	int	len;
+	int	count;
 
-	len = 0;
+	count = 0;
 	if (n <= 0)
 	{
-		len = 1;
+		count++;
 		n = -n;
 	}
 	while (n > 0)
 	{
-		n /= 10;
-		len++;
+		count++;
+		n = n / 10;
 	}
-	return (len);
+	return (count);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*str;
-	long	nbr;
+	long	nb;
 	int		len;
 
-	nbr = n;
-	len = get_len(nbr);
-	str = (char *)malloc(sizeof(char) * (len + 1));
+	nb = n;
+	len = count_digits(nb);
+	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
 	str[len] = '\0';
-	if (nbr < 0)
+	if (nb < 0)
 	{
 		str[0] = '-';
-		nbr = -nbr;
+		nb = -nb;
 	}
-	if (nbr == 0)
-		str[0] = '0';
-	while (nbr > 0)
+	if (nb == 0)
+		str[--len] = '0';
+	while (nb > 0)
 	{
-		str[--len] = (nbr % 10) + '0';
-		nbr /= 10;
+		str[--len] = (nb % 10) + '0';
+		nb = nb / 10;
 	}
 	return (str);
 }
+
+/*
+#include <stdio.h>
+
+int main(void)
+{
+	printf("result: %d\n",ft_atoi(123));
+	printf("result: %d\n",ft_atoi(456));
+	printf("result: %d\n",ft_atoi(-567));
+	printf("result: %d\n",ft_atoi(89));
+	return (0);
+}*/

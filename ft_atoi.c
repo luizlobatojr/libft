@@ -5,44 +5,48 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/03 10:17:39 by lubatist          #+#    #+#             */
-/*   Updated: 2026/10/03 10:17:43 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/07 23:00:40 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/07 23:08:26 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
 #include "libft.h"
 
-static int	signed_result(unsigned int result, int sign)
+int	ft_atoi(const char *nptr)
 {
-	if (sign < 0 && result == (unsigned int)INT_MAX + 1U)
-		return (INT_MIN);
-	if (sign < 0)
-		return (-(int)result);
-	return ((int)result);
-}
-
-int	ft_atoi(const char *str)
-{
-	int				i;
-	int				sign;
 	unsigned int	result;
+	int				sign;
+	int				i;
 
 	i = 0;
 	sign = 1;
 	result = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
 	{
-		if (str[i] == '-')
+		i++;
+	}
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+		{
 			sign = -1;
+		}
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		result = result * 10 + (unsigned int)(str[i] - '0');
+		result = result * 10 + (unsigned int)(nptr[i] - '0');
 		i++;
 	}
-	return (signed_result(result, sign));
+	return (result * sign);
 }
+/*
+int main(void)
+{
+
+	printf("result: %d\n",ft_atoi("123"));
+	printf("result: %d\n",ft_atoi("+456"));
+	printf("result: %d\n",ft_atoi("-567"));
+	printf("result: %d\n",ft_atoi("   89"));
+	return (0);
+}*/

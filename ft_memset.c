@@ -5,24 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 05:47:12 by lubatist          #+#    #+#             */
-/*   Updated: 2026/09/29 05:47:20 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/03 13:36:39 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/03 14:10:58 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*ptr;
 	size_t			i;
 
-	ptr = (unsigned char *)b;
+	ptr = (unsigned char *)s;
 	i = 0;
-	while (i < len)
+	while (i < n)
 	{
 		ptr[i] = (unsigned char)c;
 		i++;
 	}
-	return (b);
+	return (s);
 }

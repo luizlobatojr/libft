@@ -5,19 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/07 15:42:28 by lubatist          #+#    #+#             */
-/*   Updated: 2026/10/07 15:42:29 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/09 13:59:13 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/10 10:30:02 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*str;
 	size_t	i;
 	size_t	s_len;
-	char	*sub;
 
 	if (!s)
 		return (NULL);
@@ -26,15 +25,32 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len = 0;
 	else if (len > s_len - start)
 		len = s_len - start;
-	sub = (char *)malloc(sizeof(char) * (len + 1));
-	if (!sub)
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (i < len)
 	{
-		sub[i] = s[start + i];
+		str[i] = s[start + i];
 		i++;
 	}
-	sub[i] = '\0';
-	return (sub);
+	str[i] = '\0';
+	return (str);
 }
+/*
+#include <stdio.h>
+
+int main(void) 
+{
+
+
+	char *str = " Hello World";
+	char *ret = ft_substr(str, 6, 5);
+	printf("ateui %s:", ret);	
+	return (0);
+
+}
+Aloca memória (usando malloc(3)) e 
+retorna uma substring da string 's'. 
+A substring começa no índice 'start' e tem um comprimento máximo de 'len'.
+*/

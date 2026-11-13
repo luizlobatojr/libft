@@ -5,30 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/03 10:16:42 by lubatist          #+#    #+#             */
-/*   Updated: 2026/10/03 10:16:56 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/08 02:48:04 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/08 19:47:00 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
 
-	if (!*needle)
-		return ((char *)haystack);
+	if (little[0] == '\0')
+		return ((char *)big);
 	i = 0;
-	while (haystack[i] != '\0' && i < len)
+	while (big[i] != '\0' && i < len)
 	{
 		j = 0;
-		while (needle[j] != '\0' && j < len - i
-			&& haystack[i + j] == needle[j])
+		while (little[j] != '\0' && i + j < len && big[i + j] == little[j])
+		{
 			j++;
-		if (needle[j] == '\0')
-			return ((char *)&haystack[i]);
+		}
+		if (little[j] == '\0')
+			return ((char *)&big[i]);
 		i++;
 	}
 	return (NULL);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char *big = "Hello World";
+	char *little = "World";
+
+	printf("retorno: %s", ft_strnstr(big, little, 11));
+	return (0);
+	
+}*/

@@ -5,30 +5,50 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/03 10:17:17 by lubatist          #+#    #+#             */
-/*   Updated: 2026/10/03 10:17:23 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/08 01:57:28 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/08 01:58:01 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
-	size_t	total_size;
+	size_t	total;
+	size_t	i;
 
-	if (count == 0 || size == 0)
-	{
-		count = 1;
-		size = 1;
-	}
-	if (size > (size_t)-1 / count)
-		return (NULL);
-	total_size = count * size;
-	ptr = malloc(total_size);
+	total = nmemb * size;
+	ptr = malloc(total);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, total_size);
+	i = 0;
+	while (i < total)
+	{
+		((unsigned char *)ptr)[i] = 0;
+		i++;
+	}
 	return (ptr);
 }
+/*
+#include <stdio.h>
+
+int main(void)
+{
+	int *number;
+	int i;
+	
+	number = ft_calloc(5, sizeof(int));
+	if (!number)
+	{
+		return (1);
+	}
+	i = 0;
+	while (i < 5)  
+	{
+		printf("posicao: %d %d\n", i, number);
+		i++;
+	}
+	free(number);
+	return (0);
+}*/

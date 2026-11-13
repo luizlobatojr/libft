@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/03 18:35:44 by lubatist          #+#    #+#             */
-/*   Updated: 2026/10/03 18:35:47 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/10 10:40:34 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/10 11:27:52 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,31 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	start = 0;
 	while (s1[start] && ft_strchr(set, s1[start]))
+	{
 		start++;
+	}
 	end = ft_strlen(s1);
 	if (end == 0)
-		return (ft_strdup(""));
+		return (ftstrdup(""));
 	end--;
 	while (end > start && ft_strchr(set, s1[end]))
+	{
 		end--;
+	}
 	if (start > end)
-		return (ft_strdup(""));
-	return (ft_substr(s1, start, end - start + 1));
+	{
+		return (ftstrdup(""));
+	}
+	return (ft_substr(s1, start, end, start + 1));
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	*s1;
+       	char	*set;
+
+	ft_substrim(s1, 5);
+	return (0);
+}*/

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstaddback.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/07 15:39:34 by lubatist          #+#    #+#             */
-/*   Updated: 2026/10/07 15:39:36 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/10 12:44:47 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/10 14:01:42 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,17 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	last = ft_lstlast(*lst);
 	last->next = new;
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	t_list *node = NULL;
+	t_list *first_node = ft_lstnew("A");
+	t_list *second_node = ft_lstnew("B"); 
+	
+	ft_lstadd_back(&node, first_node);
+	ft_lstadd_back(&node, second_node);
+
+	return (0);
+}*/

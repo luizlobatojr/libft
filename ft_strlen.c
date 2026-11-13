@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 05:29:42 by lubatist          #+#    #+#             */
-/*   Updated: 2026/09/29 05:34:55 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/03 11:51:24 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/03 11:56:56 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlen(const char *s)
@@ -17,6 +18,8 @@ size_t	ft_strlen(const char *s)
 
 	i = 0;
 	while (s[i] != '\0')
+	{
 		i++;
+	}
 	return (i);
 }

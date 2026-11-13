@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 05:13:31 by lubatist          #+#    #+#             */
-/*   Updated: 2026/09/29 05:13:46 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/04 10:12:54 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/04 10:21:37 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
+	{
 		return (c + 32);
+	}
 	return (c);
 }

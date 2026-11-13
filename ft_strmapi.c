@@ -5,30 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/07 15:42:12 by lubatist          #+#    #+#             */
-/*   Updated: 2026/10/07 15:42:14 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/12 11:05:43 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/12 11:05:45 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*res;
+	char			*new;
 	unsigned int	i;
 
 	if (!s || !f)
 		return (NULL);
-	res = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!res)
+	new = malloc(ft_strlen(s) + 1);
+	if (!new)
 		return (NULL);
 	i = 0;
 	while (s[i] != '\0')
 	{
-		res[i] = f(i, s[i]);
+		new[i] = f(i, s[i]);
 		i++;
 	}
-	res[i] = '\0';
-	return (res);
+	new[i] = '\0';
+	return (new);
 }
+/*
+#include <stdio.h>
+
+char	ft_upper(unsigned int i, char c)
+{
+	(void) i;
+	return (ft_toupper(c));
+}
+
+int	main(void)
+{
+	char *str;
+	
+	str = ft_strmapi("Hello World", ft_upper);
+	printf("string depois: %s\n", str);
+	free(str);
+	return (0);
+}*/

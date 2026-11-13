@@ -5,32 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/03 10:18:14 by lubatist          #+#    #+#             */
-/*   Updated: 2026/10/03 10:18:17 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/08 01:34:57 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/08 01:43:53 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(const char *s)
 {
-	size_t	len;
-	size_t	i;
-	char	*dup;
+	char	*copy;
+	int		i;
 
-	len = 0;
-	while (s1[len] != '\0')
-		len++;
-	dup = (char *)malloc(sizeof(char) * (len + 1));
-	if (!dup)
+	copy = (char *)malloc(ft_strlen(s) + 1);
+	if (!copy)
 		return (NULL);
 	i = 0;
-	while (i < len)
+	while (s[i] != '\0')
 	{
-		dup[i] = s1[i];
+		copy[i] = s[i];
 		i++;
 	}
-	dup[i] = '\0';
-	return (dup);
+	copy[i] = '\0';
+	return (copy);
 }
+/*
+#include <stdio.h>
+int main(void)
+{
+
+	char *dup = "Hello";
+	char *copy = ft_strdup(dup);
+	printf("dup: %s\n", dup);
+	printf("orig: %s\n", copy);
+	
+	free(copy);
+	
+	return (0);
+}*/

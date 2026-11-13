@@ -5,14 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/07 15:41:57 by lubatist          #+#    #+#             */
-/*   Updated: 2026/10/07 15:41:58 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/12 10:10:14 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/12 10:10:20 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 
@@ -25,3 +24,20 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		i++;
 	}
 }
+/*
+#include <stdio.h>
+
+void	ft_toupper2(unsigned int n, char *c)
+{
+	(void) n;
+	*c = ft_toupper(*c);
+}
+
+int	main(void)
+{
+	char str[] = "Hello World";
+	printf("string antes: %s\n", str);
+	ft_striteri(str, ft_toupper2);
+	printf("string depois: %s\n", str);
+	return (0);
+}*/

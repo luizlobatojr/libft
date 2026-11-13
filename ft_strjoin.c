@@ -5,30 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/03 18:35:20 by lubatist          #+#    #+#             */
-/*   Updated: 2026/10/03 18:35:23 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/08 20:38:55 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/08 21:00:29 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include "libft.h" 
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*new_str;
-	size_t	len1;
-	size_t	len2;
+	char	*result;
+	size_t	i;
+	size_t	j;
 
-	if (!s1 || !s2)
+	result = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!result)
 		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	if (len2 == (size_t)-1 || len1 > (size_t)-1 - len2 - 1)
-		return (NULL);
-	new_str = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
-	if (!new_str)
-		return (NULL);
-	ft_memcpy(new_str, s1, len1);
-	ft_memcpy(new_str + len1, s2, len2 + 1);
-	return (new_str);
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0')
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	while (s2[j] != '\0')
+	{
+		result[i] = s2[j];
+		i++;
+		j++;
+	}
+	result[i] = '\0';
+	return (result);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char *result;
+
+	result = ft_strjoin("Hello ", "World");
+	printf("%s\n", result);
+
+	return (0);
+}*/
