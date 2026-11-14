@@ -6,7 +6,7 @@
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 14:25:01 by lubatist          #+#    #+#             */
-/*   Updated: 2026/11/14 10:01:24 by lubatist         ###   ########.fr       */
+/*   Updated: 2026/11/14 10:15:41 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(void)
 
 	// Mostra os primeiros 15 bytes em formato numérico/caractere
     printf("Bytes: ");
-	
+
 	for (i = 0; i < 15; i++)
     {
         if (buffer[i] >= 32 && buffer[i] <= 126)
@@ -39,7 +39,7 @@ int main(void)
             printf("[\\x%02X] ", (unsigned char)buffer[i]);
     }
 	printf("\n\n");
-	
+
 	ft_bzero(buffer, 7);
 
 	printf("--- Depois do ft_bzero (7 bytes zerados) ---\n");
@@ -48,6 +48,7 @@ int main(void)
     printf("Bytes da memória:\n");
     for (i = 0; i < 15; i++)
     {
-        printf("Índice %2d: valor = %3d (char: '%c')\n", i, (unsigned char)buffer[i], buffer[i]);
+        printf("Índice %2d: valor = %3d (char: '%c')\n", i, (unsigned char)
+		buffer[i], buffer[i]);
     }
 }*/

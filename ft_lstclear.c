@@ -6,18 +6,16 @@
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 15:39:47 by lubatist          #+#    #+#             */
-/*   Updated: 2026/11/14 09:27:53 by lubatist         ###   ########.fr       */
+/*   Updated: 2026/11/14 10:15:18 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
-void	del_content(void *content);
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *tmp;
+	t_list	*tmp;
+
 	if (!lst || !del)
 		return ;
 	while (*lst)
@@ -30,12 +28,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	}
 	*lst = NULL;
 }
+/*
 void	del_content(void *content)
 {
 	free(content);
 }
-
-int main (void)
+int	main (void)
 {
 	t_list *list;
 	list = ft_lstnew(ft_strdup("um"));
@@ -48,7 +46,7 @@ int main (void)
         printf("%p -> \n", list->content);
         list = list->next; // Avança para o próximo nó
     }
-    printf("NULL\n");*/
-	
+    printf("NULL\n");
+
 	return (0);
-}
+}*/

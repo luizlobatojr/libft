@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/06 11:17:31 by lubatist          #+#    #+#             */
-/*   Updated: 2026/11/14 06:23:07 by lubatist         ###   ########.fr       */
+/*   Created: 2026/11/14 10:10:32 by lubatist          #+#    #+#             */
+/*   Updated: 2026/11/14 10:12:40 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	if (!s)
-        return ;
+		return ;
 	ft_putstr_fd(s, fd);
 	write(fd, "\n", 1);
 }
@@ -25,18 +25,18 @@ void	ft_putendl_fd(char *s, int fd)
 int main(void)
 {
     int fd;
-    
+
     fd = open("teste.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
     if (fd == -1)
     {
         perror("Erro ao abrir o ficheiro");
         return (1);
     }
-    
+
     printf("Ficheiro aberto com sucesso! FD: %d\n", fd);
     ft_putstr_fd("Ola, Mundo!", fd);
     close(fd);
-    
+
     return (0);
 }
 }*/

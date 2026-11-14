@@ -36,7 +36,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	{
 		return (ftstrdup(""));
 	}
-	return (ft_substr(s1, start, end, start + 1));
+	return (ft_substr(s1, start, end - start + 1));
 }
 /*
 #include <stdio.h>
