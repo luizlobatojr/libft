@@ -6,7 +6,7 @@
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 23:00:40 by lubatist          #+#    #+#             */
-/*   Updated: 2026/11/07 23:08:26 by lubatist         ###   ########.fr       */
+/*   Updated: 2026/11/14 09:43:43 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ int	ft_atoi(const char *nptr)
 	sign = 1;
 	result = 0;
 	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
-	{
 		i++;
-	}
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
