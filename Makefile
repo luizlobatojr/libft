@@ -36,12 +36,7 @@ SRCS = ft_bzero.c \
 	ft_strjoin.c \
 	ft_substr.c \
 	ft_lstadd_front.c \
-	ft_lstadd_back.c \
-	ft_striteri.c \
-	ft_strmapi.c \
-	ft_itoa.c \
-	ft_lstdelone.c \
-	ft_putnbr_fd.c
+	ft_lstadd_back.c
 
 OBJS = $(SRCS:.c=.o)
 

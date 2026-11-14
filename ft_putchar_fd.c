@@ -6,7 +6,7 @@
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 10:19:01 by lubatist          #+#    #+#             */
-/*   Updated: 2026/11/06 10:27:58 by lubatist         ###   ########.fr       */
+/*   Updated: 2026/11/14 05:44:45 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,20 @@ void	ft_putchar_fd(char c, int fd)
 	write(fd, &c, 1);
 }
 /*
-#include <stdio.h>
-
-int	main(void)
+#include <fcntl.h>
+int        main(void)
 {
-	
-	ft_putchar_fd('a', 1);
-	return (0);
+        int        fd;
+        fd = open("teste.txt", O_WRONLY | O_CREAT, 0644);
+        if (fd > 0)
+        {
+                ft_putchar_fd('H', fd);
+                ft_putchar_fd('e', fd);
+                ft_putchar_fd('l', fd);
+                ft_putchar_fd('l', fd);
+                ft_putchar_fd('o', fd);
+                ft_putchar_fd('\n', fd);
+                close(fd);
+        }
+        return (0);
 }*/

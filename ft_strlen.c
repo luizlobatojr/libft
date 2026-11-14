@@ -6,7 +6,7 @@
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 11:51:24 by lubatist          #+#    #+#             */
-/*   Updated: 2026/11/03 11:56:56 by lubatist         ###   ########.fr       */
+/*   Updated: 2026/11/14 06:00:09 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,13 @@ size_t	ft_strlen(const char *s)
 	}
 	return (i);
 }
+/*
+#include <stdio.h>
+
+int        main(void)
+{
+        const char *s = "Hello, World!";
+        size_t    len = ft_strlen(s);
+        printf(" comprimento da string: %zu\n", len);
+        return (0);
+}*/

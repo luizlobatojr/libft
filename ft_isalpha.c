@@ -6,7 +6,7 @@
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 10:37:46 by lubatist          #+#    #+#             */
-/*   Updated: 2026/11/03 11:27:29 by lubatist         ###   ########.fr       */
+/*   Updated: 2026/11/13 19:10:12 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	ft_isalpha(int c)
 	return (0);
 }
 /*
-#include <ctype.h>
 #include <stdio.h>
+
 int	main(void)
 {
-	int ret = isalpha('a');
-	printf("retorno: [%d]", ret);
+	printf("digit: [%d]\n",ft_isalpha('a'));
 	
+	return (0);
 }*/
