@@ -6,12 +6,11 @@
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 15:43:17 by lubatist          #+#    #+#             */
-/*   Updated: 2026/10/07 15:43:19 by lubatist         ###   ########.fr       */
+/*   Updated: 2026/11/14 06:41:31 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static size_t	count_words(char const *s, char c)
 {
@@ -94,3 +93,47 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (fill_words(result, s, c));
 }
+/*
+#include <stdio.h>
+
+static void	test(char const *s, char c)
+{
+	char	**r;
+	int		i;
+
+	if (s)
+		printf("Entrada: \"%s\" | separador: '%c'\n", s, c);
+	else
+		printf("Entrada: NULL | separador: '%c'\n", c);
+	r = ft_split(s, c);
+	if (!r)
+	{
+		printf("  -> NULL\n\n");
+		return ;
+	}
+	i = 0;
+	while (r[i])
+	{
+		printf("  [%d] = \"%s\"\n", i, r[i]);
+		free(r[i]);
+		i++;
+	}
+	printf("  total: %d palavra(s)\n\n", i);
+	free(r);
+}
+
+int	main(void)
+{
+	test("ola mundo", ' ');           // 2: ola, mundo
+	test("  ola   mundo  42 ", ' ');  // 3: ola, mundo, 42
+	test("", ' ');                    // 0
+	test("     ", ' ');               // 0
+	test("abc", ' ');                 // 1: abc
+	test("abc", 'x');                 // 1: abc (separador não existe)
+	test("xxabcxxdefxx", 'x');        // 2: abc, def
+	test("a,b,c,d", ',');             // 4
+	test("palavra", 'a');             // 2: p, l, vr
+	test("\0aa\0bbb", '\0');          // 0 (string vazia na prática)
+	test(NULL, ' ');                  // NULL
+	return (0);
+}*/

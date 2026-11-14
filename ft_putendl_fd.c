@@ -6,7 +6,7 @@
 /*   By: lubatist <lubatist@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 11:17:31 by lubatist          #+#    #+#             */
-/*   Updated: 2026/11/06 11:49:49 by lubatist         ###   ########.fr       */
+/*   Updated: 2026/11/14 06:23:07 by lubatist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,29 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
-
 	if (!s)
-		return ;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+        return ;
+	ft_putstr_fd(s, fd);
 	write(fd, "\n", 1);
 }
 /*
-int	main(void)
+#include <fcntl.h>
+
+int main(void)
 {
-	ft_putendl_fd("Hello", 1);
-	ft_putendl_fd("World", 1);
-	return (0);
+    int fd;
+    
+    fd = open("teste.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    if (fd == -1)
+    {
+        perror("Erro ao abrir o ficheiro");
+        return (1);
+    }
+    
+    printf("Ficheiro aberto com sucesso! FD: %d\n", fd);
+    ft_putstr_fd("Ola, Mundo!", fd);
+    close(fd);
+    
+    return (0);
+}
 }*/
